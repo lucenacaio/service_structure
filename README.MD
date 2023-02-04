@@ -2,6 +2,7 @@
 
 Este projeto tem como objetivo fornecer uma plataforma de e-commerce completa, construída com Java, Spring e MySQL, para fins de estudo de tecnologia. A aplicação será executada localmente com o uso do Docker e Docker Compose para gerenciar as dependências.
 
+
 ## Requisitos
 - Docker
 - Docker Compose
@@ -22,3 +23,6 @@ Este projeto tem como objetivo fornecer uma plataforma de e-commerce completa, c
 ## Banco de Dados
 O banco de dados MySQL utilizado neste projeto está sendo gerenciado pelo Docker Compose. As configurações do banco de dados podem ser encontradas no arquivo `docker-compose.yml`.
 
+# Ferramentas de Monitoramento
+
+Este projeto inclui o uso do [Grafana](https://grafana.com/), uma plataforma de visualização de métricas, e do [Prometheus](https://prometheus.io/), um sistema de coleta e armazenamento de métricas. Juntos, eles fornecem uma solução completa para monitorar e visualizar a saúde e o desempenho do sistema.
