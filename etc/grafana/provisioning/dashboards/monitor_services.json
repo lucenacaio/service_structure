@@ -125,11 +125,13 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
+          "editorMode": "code",
           "expr": "process_uptime_seconds{job=\"$application\", instance=\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "",
           "metric": "",
+          "range": true,
           "refId": "A",
           "step": 14400
         }
@@ -1507,10 +1509,12 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
+          "editorMode": "code",
           "expr": "hikaricp_connections{instance=\"$instance\", job=\"$application\", pool=\"$hikaricp\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -2670,6 +2674,10 @@
           "text": "HikariPool-1",
           "value": "HikariPool-1"
         },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
         "definition": "label_values(hikaricp_connections{},pool)",
         "hide": 2,
         "includeAll": false,
@@ -2680,7 +2688,7 @@
           "query": "label_values(hikaricp_connections{},pool)",
           "refId": "StandardVariableQuery"
         },
-        "refresh": 1,
+        "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
@@ -2696,8 +2704,8 @@
     ]
   },
   "time": {
-    "from": "2023-02-04T18:42:46.797Z",
-    "to": "2023-02-04T20:42:46.797Z"
+    "from": "now-15m",
+    "to": "now"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -2727,6 +2735,6 @@
   "timezone": "",
   "title": "Spring Boot Statistics",
   "uid": "UWrXy10Vz",
-  "version": 9,
+  "version": 12,
   "weekStart": ""
 }

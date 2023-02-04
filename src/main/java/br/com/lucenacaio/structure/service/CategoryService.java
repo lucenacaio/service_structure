@@ -8,7 +8,11 @@ public interface CategoryService {
 
     Page<CategoryDTO> getAll(PageRequest of);
 
+    void delete(int id);
+
     CategoryDTO getOne(int id);
+
+    CategoryDTO update(int id, CategoryDTO categoryDTO);
 
     CategoryDTO save(CategoryDTO categoryDTO);
 

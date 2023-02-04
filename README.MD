@@ -26,3 +26,7 @@ O banco de dados MySQL utilizado neste projeto está sendo gerenciado pelo Docke
 # Ferramentas de Monitoramento
 
 Este projeto inclui o uso do [Grafana](https://grafana.com/), uma plataforma de visualização de métricas, e do [Prometheus](https://prometheus.io/), um sistema de coleta e armazenamento de métricas. Juntos, eles fornecem uma solução completa para monitorar e visualizar a saúde e o desempenho do sistema.
+
+## Bibliotecas utilizadas
+
+- [TestContainers](https://www.testcontainers.org/): biblioteca Java que fornece recursos para inicializar contêineres de teste com facilidade.
