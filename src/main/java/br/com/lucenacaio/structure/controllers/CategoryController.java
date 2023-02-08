@@ -2,6 +2,7 @@ package br.com.lucenacaio.structure.controllers;
 
 import br.com.lucenacaio.structure.dto.CategoryDTO;
 import br.com.lucenacaio.structure.service.CategoryService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -10,8 +11,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/categories")
+@RequestMapping("/api/categories")
 public class CategoryController {
+
+    private static final Logger LOGGER = Logger.getLogger(CategoryController.class);
 
     private final CategoryService categoryService;
 
@@ -34,11 +37,13 @@ public class CategoryController {
     }
 
     @PostMapping
-    public ResponseEntity<CategoryDTO> save(@RequestBody CategoryDTO categoryDTO){
+    public ResponseEntity save(@RequestBody CategoryDTO categoryDTO){
         try {
             return new ResponseEntity<>(this.categoryService.save(categoryDTO), HttpStatus.CREATED);
         } catch (Exception e) {
-            return ResponseEntity.internalServerError().build();
+            String message = "Error while trying to save a new Category.";
+            LOGGER.error(message, e);
+            return ResponseEntity.internalServerError().body(message);
         }
     }
 

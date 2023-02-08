@@ -1,6 +1,8 @@
 package br.com.lucenacaio.structure.exception.handler;
 
 import br.com.lucenacaio.structure.exception.CategoryNotFoundException;
+import br.com.lucenacaio.structure.exception.InvalidCredentialsException;
+import br.com.lucenacaio.structure.exception.InvalidTokenSignatureException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -18,5 +20,14 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
     public ResponseEntity<String> notFoundConstrainHandler(Exception ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getLocalizedMessage());
     }
+
+    @ResponseBody
+    @ResponseStatus(code = HttpStatus.UNAUTHORIZED)
+    @ExceptionHandler(value = { InvalidTokenSignatureException.class, InvalidCredentialsException.class })
+    public ResponseEntity<String> authExceptionHandler(Exception ex) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(ex.getLocalizedMessage());
+    }
+
 
 }
